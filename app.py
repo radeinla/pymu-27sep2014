@@ -1,11 +1,12 @@
 from tornado.ioloop import IOLoop
 from tornado.web import Application
 
-from app.handlers import GreetHandler, LoginHandler, MainHandler
+from app.handlers import GreetHandler, LoginHandler, LogoutHandler, MainHandler
 
 handlers = [
     (r'/', MainHandler),
     (r'/login', LoginHandler),
+    (r'/logout', LogoutHandler),
     (r'/greet', GreetHandler),
     (r'/greet/(.*)', GreetHandler),
 ]

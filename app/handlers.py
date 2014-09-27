@@ -23,6 +23,11 @@ class LoginHandler(BaseHandler):
         else:
             self.redirect("/login?message=fail")
 
+class LogoutHandler(BaseHandler):
+    def get(self):
+        self.clear_cookie("user")
+        self.redirect("/")
+
 class GreetHandler(BaseHandler):
     @authenticated
     def get(self, name=None):
