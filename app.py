@@ -16,7 +16,9 @@ settings = {
     #for dev only
     "debug": True,
     "static_path": "static",
-    "template_path": "templates"
+    "template_path": "templates",
+    "cookie_secret": "asdasdasdq12e",
+    "login_url": "/login"
 }
 
 db = None # Dummy
