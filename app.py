@@ -3,13 +3,18 @@ from tornado.web import RequestHandler, Application
 
 class MainHandler(RequestHandler):
     def get(self):
-        self.write("Hello")
+        self.write("Hello world")
 
 handlers = [
     (r'/', MainHandler),
 ]
 settings = {
+    "static_url_prefix": "/static/",
+    
+    #for dev only
     "debug": True,
+    "static_path": "static",
+    "template_path": "templates"
 }
 
 application = Application(handlers, **settings)
