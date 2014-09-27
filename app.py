@@ -1,12 +1,15 @@
 from tornado.ioloop import IOLoop
 from tornado.web import Application
 
-from app.handlers import LoginHandler, MainHandler
+from app.handlers import GreetHandler, LoginHandler, MainHandler
 
 handlers = [
     (r'/', MainHandler),
     (r'/login', LoginHandler),
+    (r'/greet', GreetHandler),
+    (r'/greet/(.*)', GreetHandler),
 ]
+
 settings = {
     "static_url_prefix": "/static/",
 
@@ -15,6 +18,8 @@ settings = {
     "static_path": "static",
     "template_path": "templates"
 }
+
+db = None # Dummy
 
 application = Application(handlers, **settings)
 

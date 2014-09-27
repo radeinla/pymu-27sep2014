@@ -20,3 +20,9 @@ class LoginHandler(RequestHandler):
             self.write("succ")
         else:
             self.write("fail")
+
+class GreetHandler(RequestHandler):
+    def get(self, name=None):
+        if not name:
+            name = "huhu"
+        self.write("Belat ka %s" % name)
