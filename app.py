@@ -1,16 +1,15 @@
 from tornado.ioloop import IOLoop
-from tornado.web import RequestHandler, Application
+from tornado.web import Application
 
-class MainHandler(RequestHandler):
-    def get(self):
-        self.write("Hello world")
+from app.handlers import LoginHandler, MainHandler
 
 handlers = [
     (r'/', MainHandler),
+    (r'/login', LoginHandler),
 ]
 settings = {
     "static_url_prefix": "/static/",
-    
+
     #for dev only
     "debug": True,
     "static_path": "static",
