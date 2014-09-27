@@ -5,9 +5,12 @@ class MainHandler(RequestHandler):
     def get(self):
         self.write("Hello")
 
-application = Application([
+handlers = [
     (r'/', MainHandler),
-])
+]
+settings = {}
+
+application = Application(handlers, **settings)
 
 if __name__ == '__main__':
     application.listen(8888)
