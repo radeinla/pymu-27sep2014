@@ -8,7 +8,9 @@ class MainHandler(RequestHandler):
 handlers = [
     (r'/', MainHandler),
 ]
-settings = {}
+settings = {
+    "debug": True,
+}
 
 application = Application(handlers, **settings)
 
