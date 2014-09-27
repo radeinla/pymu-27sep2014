@@ -6,20 +6,15 @@ class MainHandler(RequestHandler):
 
 class LoginHandler(RequestHandler):
     def get(self):
-        self.write("""
-<form method="POST" action="/login">
-    User: <input name="username"><br>
-    Pass: <input name="password" type="password"><br>
-    <input type="submit">
-</form>""")
+        self.render("login.html", message="Please login.", error="")
 
     def post(self):
         user = self.get_argument("username", "")
         password = self.get_argument("password", "")
         if user == 'admin' and password == 'password':
-            self.write("succ")
+            self.render("login.html", message="succ", error="")
         else:
-            self.write("fail")
+            self.render("login.html", message="", error="fail")
 
 class GreetHandler(RequestHandler):
     def get(self, name=None):
